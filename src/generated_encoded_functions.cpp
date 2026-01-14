@@ -50,8 +50,8 @@ void GeneratedEncodedFunction::Decode(CSVEncoderBuffer &encoded_buffer, char *ta
 		if (!did_replacement) {
 			// If we got here, it means replacements are not necessary
 
-      // fix zero bug
-      if (target_buffer_current_position == target_buffer_size) {
+			// Fix buffer overflow bug in SJIS encoding
+			if (target_buffer_current_position == target_buffer_size) {
 				remaining_bytes_size = 1;
 				remaining_bytes_buffer[0] = encoded_buffer_ptr[encoded_buffer.cur_pos];
 				encoded_buffer.cur_pos++;
