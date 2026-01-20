@@ -1,3 +1,5 @@
+all: release
+
 PROJ_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 # Configuration of extension
